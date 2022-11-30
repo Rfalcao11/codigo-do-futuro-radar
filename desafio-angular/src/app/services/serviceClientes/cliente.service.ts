@@ -5,5 +5,23 @@ import { Injectable } from '@angular/core';
 })
 export class ClienteService {
 
-  constructor() { }
+  constructor(
+    private Cliente: ClienteService = new ClienteService,
+     ) { 
+
+
+     }
+
+    
+    createCliente(Cliente:ClienteService){
+      
+    }
+
+    deleteCliente(){
+      
+    }
+
+    editCliente(){
+      
+    }
 }
