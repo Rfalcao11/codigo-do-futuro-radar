@@ -1,68 +1,103 @@
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h4 class="m-0 font-weight-bold text-primary mt-2 pt-1 pb-1">Clientes</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michael Bruce</td>
-                                            <td>Javascript Developer</td>
-                                            <td>Singapore</td>
-                                            <td>29</td>
-                                            <td>2011/06/27</td>
-                                            <td>$183,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Donna Snider</td>
-                                            <td>Customer Support</td>
-                                            <td>New York</td>
-                                            <td>27</td>
-                                            <td>2011/01/25</td>
-                                            <td>$112,000</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-               
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h4 class="m-0 font-weight-bold text-primary mt-2 pt-1 pb-1">Cliente</h4>
+  </div>
+  <div class="card-body d-flex pb-1 justify-content-between">
+    <a class="btn btn-success btn-icon-split">
+      <span class="icon text-white-50">
+        <i class="fas fa-plus"></i>
+      </span>
+      <span class="text">Novo cliente</span>
+    </a>
+    <form class="">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control bg-light border-0 small"
+          placeholder="Search for..."
+          aria-label="Search"
+          aria-describedby="basic-addon2"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button">
+            <i class="fas fa-search fa-sm"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table
+        class="table table-bordered"
+        id="dataTable"
+        width="100%"
+        cellspacing="0"
+      >
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th></th>
+          </tr>
+        </tfoot>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Jaziel</td>
+            <td>123.456.789-00</td>
+            <td>jaziel@jaziel.com.br</td>
+            <td>11 98765-4321</td>
+            <td class="text-center">
+              <i class="fas fa-pen text-gray-600"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Lucas</td>
+            <td>987.654.321-00</td>
+            <td>lucas@lucas.com.br</td>
+            <td>11 96543-1289</td>
+            <td class="text-center">
+              <i class="fas fa-pen text-gray-600"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Rafael</td>
+            <td>654.987.321-00</td>
+            <td>rafael@rafael.com.br</td>
+            <td>11 94565-8524</td>
+            <td class="text-center">
+              <i class="fas fa-pen text-gray-600"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Jonh</td>
+            <td>321.456.987-00</td>
+            <td>jonh@jonh.com.br</td>
+            <td>11 99514-7532</td>
+            <td class="text-center">
+              <i class="fas fa-pen text-gray-600"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
