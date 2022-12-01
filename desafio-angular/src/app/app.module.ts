@@ -13,6 +13,7 @@ import { NovoprodutoComponent } from './views/novoproduto/novoproduto.component'
 
 @NgModule({
   declarations: [
+    //Aqui declaramos os componentes
     AppComponent,
     LoginComponent,
     HomeComponent,
