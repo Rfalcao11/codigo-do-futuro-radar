@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { PedidosComponent } from './views/pedidos/pedidos.component';
 import { NovopedidoComponent } from './views/novopedido/novopedido.component';
+import { NovoclienteComponent } from './views/novocliente/novocliente.component';
+import { NovoprodutoComponent } from './views/novoproduto/novoproduto.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { NovopedidoComponent } from './views/novopedido/novopedido.component';
     LoginComponent,
     HomeComponent,
     PedidosComponent,
-    NovopedidoComponent
+    NovopedidoComponent,
+    NovoclienteComponent,
+    NovoprodutoComponent
   ],
   imports: [
     BrowserModule,
