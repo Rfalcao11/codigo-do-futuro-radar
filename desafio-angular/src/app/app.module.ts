@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { PedidosComponent } from './views/pedidos/pedidos.component';
+import { NovopedidoComponent } from './views/novopedido/novopedido.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { PedidosComponent } from './views/pedidos/pedidos.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    PedidosComponent
+    PedidosComponent,
+    NovopedidoComponent
   ],
   imports: [
     BrowserModule,
