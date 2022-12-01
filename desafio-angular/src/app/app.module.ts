@@ -9,6 +9,9 @@ import { PedidosComponent } from './views/pedidos/pedidos.component';
 import { NovopedidoComponent } from './views/novopedido/novopedido.component';
 import { NovoclienteComponent } from './views/novocliente/novocliente.component';
 import { NovoprodutoComponent } from './views/novoproduto/novoproduto.component';
+import { ClienteComponent } from './views/cliente/cliente.component';
+import { ProdutosComponent } from './views/produtos/produtos.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,13 +21,16 @@ import { NovoprodutoComponent } from './views/novoproduto/novoproduto.component'
     LoginComponent,
     HomeComponent,
     PedidosComponent,
+    ClienteComponent,
+    ProdutosComponent,
     NovopedidoComponent,
     NovoclienteComponent,
     NovoprodutoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

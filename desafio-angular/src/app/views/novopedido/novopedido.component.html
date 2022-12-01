@@ -25,10 +25,11 @@
     </div>
     <div>
       <input
-        type="date"
+        type="string"
         class="form-control"
         id="exampleIdPedido"
         placeholder="Data"
+        [(ngModel)]="pedidoForm.data"
       />
     </div>
   </div>
@@ -37,7 +38,7 @@
   >
     <div class="pr-2 w-50">
       <label>EAN</label>
-      <input type="string" class="form-control" id="IdProd" />
+      <input type="string" class="form-control" id="IdProd" (change)="searchproduct($event)"/>
     </div>
     <div class="pr-2">
       <label>Produto</label>
