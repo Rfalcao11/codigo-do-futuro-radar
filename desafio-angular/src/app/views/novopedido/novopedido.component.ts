@@ -9,11 +9,17 @@ export class NovopedidoComponent implements OnInit {
   constructor() {}
 
   public pedidoForm: any = {
+    idPedido: null,
+    cpf: null,
     data: null,
   };
 
   ngOnInit(): void {
     this.pedidoForm.data = new Date();
+  }
+  searchcpf(event: any) {
+    console.log(event);
+    console.log(event.target.value);
   }
 
   searchproduct(event: any) {

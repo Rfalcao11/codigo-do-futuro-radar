@@ -13,7 +13,7 @@
       />
     </div>
     <div class="pr-2">
-      <input type="string" class="form-control" id="cpf" placeholder="CPF" />
+      <input type="string" class="form-control" id="cpf" placeholder="CPF" (change)="searchcpf($event)"/>
     </div>
     <div class="pr-2">
       <a class="btn btn-info btn-icon-split">
@@ -24,14 +24,9 @@
       </a>
     </div>
     <div>
-      <input
-        type="string"
-        class="form-control"
-        id="exampleIdPedido"
-        placeholder="Data"
-        [(ngModel)]="pedidoForm.data"
-      />
+ <label class="form-control">
   {{pedidoForm.data| date : 'dd/MM/yyyy'}}
+  </label>
     </div>
   </div>
   <div
@@ -39,7 +34,7 @@
   >
     <div class="pr-2 w-50">
       <label>EAN</label>
-      <input type="string" class="form-control" id="IdProd" (change)="searchproduct($event)"/>
+      <input type="Number" class="form-control" id="IdProd" (change)="searchproduct($event)"/>
     </div>
     <div class="pr-2">
       <label>Produto</label>
