@@ -7,18 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NovopedidoComponent implements OnInit {
   constructor() {}
-
+  public pedidoForm: any = {
+    data: null,
+  };
 
   ngOnInit(): void {
-    this.pedidoForm.data = new Date()
+    this.pedidoForm.data = new Date();
   }
-public pedidoForm:any = {
-  data:null
-}
-  searchproduct(event:any){
-    console.log(event)
-    console.log(event.target.value)
 
-
+  searchproduct(event: any) {
+    console.log(event);
+    console.log(event.target.value);
   }
 }
