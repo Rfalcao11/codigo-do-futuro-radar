@@ -6,14 +6,14 @@
   <div class="card-body d-flex justify-content-start">
     <div class="pr-2">
       <input
-        type="number"
+        type="string"
         class="form-control"
         id="IdPedido"
         placeholder="Id Pedido"
       />
     </div>
     <div class="pr-2">
-      <input type="number" class="form-control" id="cpf" placeholder="CPF" />
+      <input type="string" class="form-control" id="cpf" placeholder="CPF" />
     </div>
     <div class="pr-2">
       <a class="btn btn-info btn-icon-split">
@@ -37,7 +37,7 @@
   >
     <div class="pr-2 w-50">
       <label>EAN</label>
-      <input type="number" class="form-control" id="IdProd" />
+      <input type="string" class="form-control" id="IdProd" />
     </div>
     <div class="pr-2">
       <label>Produto</label>
@@ -53,7 +53,7 @@
     </div>
     <div class="pr-2">
       <label>Valor</label>
-      <input type="number" class="form-control" id="valorprod" />
+      <input type="string" class="form-control" id="valorprod" />
     </div>
     <div class="pr-2">
       <a class="btn btn-success btn-icon-split">
@@ -145,7 +145,9 @@
   >
     <div>
       <label class="m-0 p-0 text-gray-800"> Valor total : </label>
-      <label class="m-0 p-0 pl-2 text-gray-600">R$: 350,00</label>
+      <label class="m-0 p-0 pl-2 text-gray-600" id="retornavalor"
+        >R$: 350,00</label
+      >
     </div>
     <div>
       <a class="btn btn-primary btn-icon-split mr-2">
