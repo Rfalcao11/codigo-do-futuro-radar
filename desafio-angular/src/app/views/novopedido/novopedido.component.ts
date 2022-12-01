@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NovopedidoComponent implements OnInit {
   constructor() {}
+
   public pedidoForm: any = {
     data: null,
   };

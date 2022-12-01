@@ -31,6 +31,7 @@
         placeholder="Data"
         [(ngModel)]="pedidoForm.data"
       />
+  {{pedidoForm.data| date : 'dd/MM/yyyy'}}
     </div>
   </div>
   <div
