@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
@@ -6,22 +8,14 @@ import { Injectable } from '@angular/core';
 export class ClienteService {
 
   constructor(
-    private Cliente: ClienteService = new ClienteService,
-     ) { 
+    private http: HttpClient,
+    
+    ){ 
 
 
-     }
+
+
+    }
 
     
-    createCliente(Cliente:ClienteService){
-      
-    }
-
-    deleteCliente(){
-      
-    }
-
-    editCliente(){
-      
-    }
 }

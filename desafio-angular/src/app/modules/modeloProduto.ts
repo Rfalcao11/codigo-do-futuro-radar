@@ -1,6 +1,6 @@
-export class Clientes{
-    public id:Number | undefined;
-    public nome:String | undefined;
-    public Valor:Number | undefined;
-    public qtdEstoque: Number | undefined;
+export interface Produto{
+    id:Number
+    nome:String
+    Valor:Number
+    qtdEstoque: Number
 }

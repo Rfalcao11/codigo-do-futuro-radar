@@ -4,13 +4,15 @@
     <h4 class="m-0 font-weight-bold text-primary mt-2 pt-1 pb-1">Cliente</h4>
   </div>
   <div class="card-body d-flex pb-1 justify-content-between">
-    <a routerLink="/clientes/novo" class="btn btn-success btn-icon-split">
+   
+    <button (click)="novoCliente()" class="btn btn-success btn-icon-split">
       <span class="icon text-white-50">
         <i class="fas fa-plus"></i>
       </span>
       <span class="text">Novo cliente</span>
-    </a>
-    <form class="">
+    </button>
+
+    <form class="" >
       <div class="input-group">
         <input
           type="text"
@@ -47,46 +49,17 @@
         </thead>
 
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Jaziel</td>
-            <td>123.456.789-00</td>
-            <td>jaziel@jaziel.com.br</td>
-            <td>11 98765-4321</td>
+          <tr *ngFor="let cliente of clientes">
+            <td>{{cliente.id}}</td>
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.cpf}}</td>
+            <td>{{cliente.email}}</td>
+            <td>{{cliente.telefone}}</td>
             <td class="text-center">
               <i class="fas fa-pen text-gray-600"></i>
             </td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>Lucas</td>
-            <td>987.654.321-00</td>
-            <td>lucas@lucas.com.br</td>
-            <td>11 96543-1289</td>
-            <td class="text-center">
-              <i class="fas fa-pen text-gray-600"></i>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Rafael</td>
-            <td>654.987.321-00</td>
-            <td>rafael@rafael.com.br</td>
-            <td>11 94565-8524</td>
-            <td class="text-center">
-              <i class="fas fa-pen text-gray-600"></i>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Jonh</td>
-            <td>321.456.987-00</td>
-            <td>jonh@jonh.com.br</td>
-            <td>11 99514-7532</td>
-            <td class="text-center">
-              <i class="fas fa-pen text-gray-600"></i>
-            </td>
-          </tr>
+          
         </tbody>
       </table>
     </div>

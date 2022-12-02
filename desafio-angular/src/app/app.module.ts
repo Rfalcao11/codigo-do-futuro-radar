@@ -12,6 +12,8 @@ import { NovoprodutoComponent } from './views/novoproduto/novoproduto.component'
 import { ClienteComponent } from './views/cliente/cliente.component';
 import { ProdutosComponent } from './views/produtos/produtos.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -25,12 +27,15 @@ import { FormsModule } from '@angular/forms';
     ProdutosComponent,
     NovopedidoComponent,
     NovoclienteComponent,
-    NovoprodutoComponent
+    NovoprodutoComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
