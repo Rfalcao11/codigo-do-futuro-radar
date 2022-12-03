@@ -1,10 +1,10 @@
 export interface Cliente{
     id:Number 
-    nome:String | undefined
-    telefone:String | undefined
-    email:String | undefined
-    cpf:String | undefined
-    cep:String | undefined
+    nome:string | undefined 
+    telefone:string | undefined
+    email:string | undefined
+    cpf:string | undefined
+    cep:string | undefined
     logradouro:String | undefined
     numero:String | undefined
     bairro:String | undefined

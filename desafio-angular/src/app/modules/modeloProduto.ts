@@ -2,6 +2,6 @@ export interface Produto{
     id:Number 
     nome:String |undefined
     desc: String | undefined
-    valor:Number |undefined
+    valor:number |undefined
     qtdEstoque: Number |undefined
 }
