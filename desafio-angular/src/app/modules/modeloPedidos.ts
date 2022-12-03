@@ -1,6 +1,7 @@
 export interface Pedido{
-    id:Number
-    ClienteID:String
-    ValorTotal:String
-    data: String
+    id:Number 
+    cpfCliente:Number | undefined
+    valorTotal: Number | undefined
+    data: String | undefined
 }
+

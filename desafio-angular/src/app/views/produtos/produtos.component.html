@@ -12,7 +12,7 @@
     </a>
     <form class="">
       <div class="input-group">
-        <input
+        <input 
           type="text"
           class="form-control bg-light border-0 small"
           placeholder="Search for..."
@@ -42,48 +42,19 @@
             <th>Descrição</th>
             <th class="text-center">Valor</th>
             <th class="text-center">Quantidade</th>
-            <th></th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Dipirona</td>
-            <td>Dipirona Sódica 500mg c/10</td>
-            <td class="text-center">R$ 3,99</td>
-            <td class="text-center">11</td>
+        <tbody >
+          <tr *ngFor="let produto of produtos">
+            <td>{{produto.id}}</td>
+            <td>{{produto.nome}}</td>
+            <td>{{produto.desc}}</td>
+            <td class="text-center">{{produto.valor}}</td>
+            <td class="text-center">{{produto.qtdEstoque}}</td>
             <td class="text-center">
-              <i class="fas fa-pen text-gray-600"></i>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Dipirona</td>
-            <td>Dipirona Sódica 500mg c/10</td>
-            <td class="text-center">R$ 3,99</td>
-            <td class="text-center">11</td>
-            <td class="text-center">
-              <i class="fas fa-pen text-gray-600"></i>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Dipirona</td>
-            <td>Dipirona Sódica 500mg c/10</td>
-            <td class="text-center">R$ 3,99</td>
-            <td class="text-center">11</td>
-            <td class="text-center">
-              <i class="fas fa-pen text-gray-600"></i>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Dipirona</td>
-            <td>Dipirona Sódica 500mg c/10</td>
-            <td class="text-center">R$ 3,99</td>
-            <td class="text-center">11</td>
-            <td class="text-center">
-              <i class="fas fa-pen text-gray-600"></i>
+              <button (click)="editarProduto(produto.id)" class="btn p-0">
+              <i class="fas fa-pen text-gray-600" role="button"></i>
+              </button>
             </td>
           </tr>
         </tbody>

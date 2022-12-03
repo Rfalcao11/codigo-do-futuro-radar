@@ -1,77 +1,79 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h4 class="m-0 font-weight-bold text-primary mt-2 pt-1 pb-1">Clientes</h4>
+    <h4 class="m-0 font-weight-bold text-primary mt-2 pt-1 pb-1">{{titulo}}</h4>
   </div>
   <div
     class="card-body d-flex flex-column border border-2 m-3 pb-1 pt-1 pr-1 pl-1 rounded align-items-center"
   >
+  <form *ngIf="cliente">
     <div class="d-flex pl-2 pr-2">
       <div class="pr-2 w-75">
-        <label class="mb-0">Nome</label>
-        <input type="string" class="form-control"/>
+        <label class="mb-0" >Nome</label>
+        <input name="nome" id="nome" type="string" [(ngModel)]="cliente.nome" class="form-control"/>
       </div>
       <div class="pr-2 w-25">
         <label class="mb-0">CPF</label>
-        <input type="text" class="form-control"/>
+        <input  name="cpf" id="cpf" [(ngModel)]="cliente.cpf" type="number" class="form-control"/>
       </div>
     </div>
     <div class="d-flex w-100 pl-2 pr-2 ">
       <div class="pr-2 w-50">
         <label class="mb-0">E-mail</label>
-        <input type="string" class="form-control" />
+        <input name="email" id="email" [(ngModel)]="cliente.email" type="string" class="form-control" />
       </div>
       <div class="pr-2">
         <label class="mb-0">Celular</label>
-        <input type="text" class="form-control" id="nomeprod" />
+        <input name="telefone" id="tel" [(ngModel)]="cliente.telefone" type="text" class="form-control" id="nomeprod" />
       </div>
       <div class="pr-2">
         <label class="mb-0">CEP</label>
-        <input type="text" class="form-control" id="nomeprod" />
+        <input name="cep" id="cep" [(ngModel)]="cliente.cep" type="text" class="form-control" id="nomeprod" />
       </div>
     </div>
     <div class="d-flex w-100 pl-2 pr-2">
       <div class="pr-2 w-50">
         <label class="mb-0">Endereço</label>
-        <input type="string" class="form-control" id="IdProd" />
+        <input name="logradouro" id="end" [(ngModel)]="cliente.logradouro" type="string" class="form-control" id="IdProd" />
       </div>
       <div class="pr-2">
         <label class="mb-0">Numero</label>
-        <input type="text" class="form-control" id="nomeprod" />
+        <input name="numero" id="num" [(ngModel)]="cliente.numero" type="text" class="form-control" id="nomeprod" />
       </div>
       <div class="pr-2">
         <label class="mb-0">Bairro</label>
-        <input type="text" class="form-control" id="nomeprod" />
+        <input name="bairro" id="bairro" [(ngModel)]="cliente.bairro" type="text" class="form-control" id="nomeprod" />
       </div>
     </div>
     <div class="d-flex w-100 pl-2 pr-2 mb-2">
       <div class="pr-2 w-50">
         <label class="mb-0">Cidade</label>
-        <input type="string" class="form-control" id="IdProd" />
+        <input name="cidade" id="cidade" [(ngModel)]="cliente.cidade" type="string" class="form-control" id="IdProd" />
       </div>
       <div class="pr-2">
         <label class="mb-0">Estado</label>
-        <input type="text" class="form-control" id="nomeprod" />
+        <input name="estado" id="estado" [(ngModel)]="cliente.estado" type="text" class="form-control" id="nomeprod" />
       </div>
       <div class="pr-2">
         <label class="mb-0">Complemento</label>
-        <input type="text" class="form-control" id="nomeprod" />
+        <input name="complemento" id="complemento" [(ngModel)]="cliente.complemento" type="text" class="form-control" id="nomeprod" />
       </div>
     </div>
+  </form>
 
     <div class="d-flex">
-      <a class="btn btn-success btn-icon-split">
+      <button (click)="salvar()" class="btn btn-success btn-icon-split">
         <span class="icon text-white-50">
           <i class="fas fa-plus"></i>
         </span>
         <span class="text">Salvar</span>
-      </a>
-      <a class="btn btn-danger btn-icon-split ml-2">
+      </button>
+      <button class="btn btn-danger btn-icon-split ml-2">
         <span class="icon text-white-50">
           <i class="fas fa-trash"></i>
         </span>
-        <span class="text">Cancelar</span>
-      </a>
+        <span (click)="cancelar()" class="text">Cancelar</span>
+      </button>
     </div>
   </div>
 </div>

@@ -4,12 +4,14 @@
     <h4 class="m-0 font-weight-bold text-primary mt-2 pt-1 pb-1">Pedidos</h4>
   </div>
   <div class="card-body d-flex pb-1 justify-content-between">
-    <a routerLink="novo" class="btn btn-success btn-icon-split">
+    
+    <button (click)="novoPedido()" class="btn btn-success btn-icon-split">
       <span class="icon text-white-50">
         <i class="fas fa-plus"></i>
       </span>
       <span class="text">Novo pedido</span>
-    </a>
+    </button>
+
     <form class="">
       <div class="input-group">
         <input
@@ -38,19 +40,19 @@
         <thead>
           <tr>
             <th>Pedido</th>
-            <th>Cliente</th>
-            <th>Data</th>
+            <th>CPF Cliente</th>
             <th>Valor Total</th>
+            <th>Data</th>
             <th></th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Jaziel</td>
-            <td>22/11/2022</td>
-            <td>R$ 2424,24</td>
+          <tr *ngFor="let pedido of pedidos">
+            <td>{{pedido.id}}</td>
+            <td>{{pedido.cpfCliente}}</td>
+            <td>{{pedido.valorTotal}}</td>
+            <td>{{pedido.data}}</td>
             <td class="text-center">
               <button class="btn p-0">
               <i class="fas fa-pen text-gray-600" role="button"></i>
