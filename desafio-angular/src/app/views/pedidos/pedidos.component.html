@@ -42,25 +42,21 @@
             <th>Pedido</th>
             <th>CPF Cliente</th>
             <th>Valor Total</th>
-            <th>Data</th>
-            <th></th>
-            <th></th>
+            <th>Data</th>         
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           <tr *ngFor="let pedido of pedidos">
             <td>{{pedido.id}}</td>
-            <td>{{pedido.cpfCliente}}</td>
-            <td>{{pedido.valorTotal}}</td>
+            <td *ngIf="pedido && pedido.cpfCliente">{{pedido.cpfCliente | formatarCpf}}</td>
+            <td >{{pedido.valorTotal }}</td>
             <td>{{pedido.data}}</td>
             <td class="text-center">
               <button (click)="editarPedido(pedido.id)" class="btn p-0">
-              <i class="fas fa-pen text-gray-600" role="button"></i>
+              <i class="fas fa-eye text-gray-600" role="button"></i>
               </button>
             </td>
-            <td class="text-center">
-              <i class="fas fa-trash text-gray-600"></i>
-            </td>
+           
           </tr>
         </tbody>
       </table>

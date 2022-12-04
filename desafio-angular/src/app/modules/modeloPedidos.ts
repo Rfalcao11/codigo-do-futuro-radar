@@ -1,6 +1,6 @@
 export interface Pedido{
     id:Number 
-    cpfCliente:Number | undefined
+    cpfCliente: string | undefined
     valorTotal: Number | undefined
     data: String | undefined
 }

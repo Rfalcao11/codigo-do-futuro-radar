@@ -72,7 +72,7 @@
       </label>
       <ng-template  [ngIf]="!pedido.data">
         <label class="form-control">
-          {{ pedidoForm.data | date : "dd/MM/yyyy"  }}
+          {{ pedidoForm.data | date : "MM/dd/yyyy" }}
         </label>
       </ng-template>
     </div>
@@ -82,7 +82,7 @@
 
 
 
-<form *ngIf="pedidoProduto && produtos ">  
+<form *ngIf="pedidoProduto && produtos && !CPFCadastrado && CPFValido">  
   
 <div class="card-body d-flex border border-2 m-3 pr-1 pl-1 rounded align-items-end">
   <div class="pr-2 w-25">
@@ -92,15 +92,15 @@
     
     <div class="pr-2 w-50">
       <label>Produto</label>
-      <input name="nomeProd" *ngIf="EAN" [(ngModel)]="produtos[EAN-1].nome" disabled type="text" class="form-control" id="nomeprod" />
+      <input name="nomeProd" [ngModel]="produto.nome" disabled type="text" class="form-control" id="nomeprod" />
     </div>
     <div class="pr-2 w-75">
       <label>Descrição</label>
-      <input disabled type="text"  name="descprod" *ngIf="EAN" [(ngModel)]="produtos[EAN-1].desc" class="form-control" id="descprod" />
+      <input disabled type="text"  name="descprod" [ngModel]="produto.desc" class="form-control" id="descprod" />
     </div>
     <div class="pr-2">
       <label>Qtd Estoque</label>
-      <input type="number" disabled name="qtdEstoque" *ngIf="EAN" [(ngModel)]="produtos[EAN-1].qtdEstoque" class="form-control" id="qtdprod" />
+      <input type="number" disabled name="qtdEstoque" [ngModel]="produto.qtdEstoque" class="form-control" id="qtdprod" />
     </div>
     <div class="pr-2">
       <label>Quantidade</label>
@@ -108,10 +108,10 @@
     </div>
     <div class="pr-2">
       <label>Valor</label>
-      <input disabled name="valorprod" *ngIf="EAN" [(ngModel)]="produtos[EAN-1].valor" type="string" class="form-control" id="valorprod" />
+      <input disabled name="valorprod" [ngModel]="produto.valor" type="string" class="form-control" id="valorprod" />
     </div>
     <div class="pr-2">
-      <button [disabled]="!EANValido" class="btn btn-success btn-icon-split">
+      <button (click)="adicionarPedidoProduto()" [disabled]="!EANValido" class="btn btn-success btn-icon-split">
         <span class="icon text-white-50">
           <i class="fas fa-plus"></i>
         </span>
@@ -121,8 +121,8 @@
   </div>
 </form>
   
-  <form *ngIf="pedidoProduto && produtos ">  
-  <div class="card-body pb-0">
+<form *ngIf="pedidoProduto && produtos && atualiza">  
+  <div class="card-body pb-0" >
     <div class="table-responsive">
       <table
         class="table table-bordered"
@@ -132,34 +132,41 @@
       >
         <thead>
           <tr>
-            <th>EAN</th>
+            <th>EAN</th> 
             <th>Produto</th>
             <th>Descrição</th>
             <th>Quantidade</th>
             <th>Valor</th>
-            <th></th>
-            <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngIf="CPFCadastrado; else blocosenao">
           <tr *ngFor="let pedidosProdutos of pedidoProduto">
-            <td>{{produtos[(pedidosProdutos.idProduto)-1].id}}</td>
+            <td>{{pedidosProdutos.idProduto}}</td>
             <td>{{produtos[(pedidosProdutos.idProduto)-1].nome}}</td>
             <td>{{produtos[(pedidosProdutos.idProduto)-1].desc}}</td>
             <td>{{pedidosProdutos.qtd}}</td>
-            <td>{{pedidosProdutos.valorTotal}}</td>
-            <td class="text-center">
-              <i class="fas fa-pen text-gray-600"></i>
-            </td>
-            <td class="text-center">
-              <i class="fas fa-trash text-gray-600"></i>
-            </td>
+            <td>{{pedidosProdutos.valorTotal | currency:'BRL':'symbol':'1.2-2'}}</td>
           </tr>
         </tbody>
+        <ng-template #blocosenao>
+          <tr *ngFor="let pedidoFake of ListaProdFake">
+            <td>{{pedidoFake.idProd}}</td>
+            <td>{{pedidoFake.nomeProd}}</td>
+            <td>{{pedidoFake.desc}}</td>
+            <td>{{pedidoFake.qtd}}</td>
+            <td>{{pedidoFake.valTotal | currency:'BRL':'symbol':'1.2-2'}}</td>
+            <td class="text-center">
+              <button (click)="excluirPedidoProduto(pedidoFake)" class="btn p-0">
+              <i class="fas fa-trash text-gray-600" role="button"></i>
+              </button>
+            </td>
+          </tr>
+        </ng-template>
    </table>
+   
+
     </div>
   </div>
-
   </form>
 
 
@@ -169,12 +176,12 @@
     <div>
       <label class="m-0 p-0 text-gray-800"> Valor total : </label>
       <label class="m-0 p-0 pl-2 text-gray-600" id="retornavalor"
-        >R$: 350,00</label
+        >{{valorPedidoTotal | currency:'BRL':'symbol':'1.2-2' }}</label
       >
     </div>
 
     <div>
-      <button (click)="salvar()" class="btn btn-primary btn-icon-split mr-2">
+      <button (click)="salvar()" *ngIf="!CPFCadastrado" [disabled]="!CPFValido || !atualiza || valorPedidoTotal==0" class="btn btn-primary btn-icon-split mr-2">
         <span class="icon text-white-50">
           <i class="fas fa-arrow-right"></i>
         </span>

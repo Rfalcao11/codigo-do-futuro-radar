@@ -30,4 +30,9 @@ export class PedidoServico{
     public excluirpedidoPorId(id:Number) {
         firstValueFrom(this.http.delete(`${environment.API}/pedidos/${id}`))
     }
+
+    public async listarTamanhoPedidos(): Promise<undefined> {
+        let tamanhoPedido: number | any = await (await firstValueFrom(this.http.get<Pedido[]>(`${environment.API}/pedidos`))).length
+        return tamanhoPedido;
+    }
 }
