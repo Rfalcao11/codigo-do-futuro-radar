@@ -45,7 +45,7 @@ export class NovoclienteComponent implements OnInit {
     else{
       this.clienteServico.criarCliente({
         id: 0, 
-        nome: this.cliente?.nome,
+        nome: this.cliente?.nome ,
         telefone: this.cliente?.telefone,
         email: this.cliente?.email,
         cpf: this.cliente?.cpf,
@@ -64,5 +64,7 @@ export class NovoclienteComponent implements OnInit {
   public cancelar():void{
     this.router.navigateByUrl('/clientes');
     }
+
+  public tele:String = "merda"
 
 }

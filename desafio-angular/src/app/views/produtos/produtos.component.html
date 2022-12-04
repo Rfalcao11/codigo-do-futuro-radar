@@ -49,7 +49,7 @@
             <td>{{produto.id}}</td>
             <td>{{produto.nome}}</td>
             <td>{{produto.desc}}</td>
-            <td class="text-center">{{produto.valor}}</td>
+            <td class="text-center">{{produto.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
             <td class="text-center">{{produto.qtdEstoque}}</td>
             <td class="text-center">
               <button (click)="editarProduto(produto.id)" class="btn p-0">

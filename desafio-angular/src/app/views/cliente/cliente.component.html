@@ -1,3 +1,4 @@
+
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
@@ -50,11 +51,11 @@
 
         <tbody>
           <tr *ngFor="let cliente of clientes">
-            <td>{{cliente.id}}</td>
-            <td>{{cliente.nome}}</td>
-            <td>{{cliente.cpf}}</td>
-            <td>{{cliente.email}}</td>
-            <td>{{cliente.telefone}}</td>
+            <td>{{cliente.id  }}</td>
+            <td>{{cliente.nome }}</td>
+            <td>{{cliente.cpf! | formatarCpf }}</td>
+            <td>{{cliente.email }}</td>
+            <td>{{cliente.telefone! | formatarTelefone}}</td>
             <td class="text-center">
               <button (click)="editarCliente(cliente.id)" class="btn p-0">
               <i class="fas fa-pen text-gray-600" role="button"></i>
