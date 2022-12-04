@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/modules/modeloCliente';
 import { ClienteServico } from 'src/app/services/serviceClientes/clienteServico';
@@ -35,11 +34,9 @@ export class NovoclienteComponent implements OnInit {
   private async editaCliente(id: Number) {
     this.titulo = "Editar Cliente"
     this.cliente = await this.clienteServico.buscarClientePorId(id)
-  
     console.log(this.cliente)
   }
-
-  
+ 
 
   salvar(){
     if(this.cliente && this.cliente.id > 0){

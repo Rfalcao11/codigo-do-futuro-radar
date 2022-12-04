@@ -54,7 +54,7 @@
             <td>{{pedido.valorTotal}}</td>
             <td>{{pedido.data}}</td>
             <td class="text-center">
-              <button class="btn p-0">
+              <button (click)="editarPedido(pedido.id)" class="btn p-0">
               <i class="fas fa-pen text-gray-600" role="button"></i>
               </button>
             </td>

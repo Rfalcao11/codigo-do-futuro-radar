@@ -1,72 +1,127 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h4 class="m-0 font-weight-bold text-primary mt-2 pt-1 pb-1">Pedidos</h4>
+    <h4 class="m-0 font-weight-bold text-primary mt-2 pt-1 pb-1">{{titulo}}</h4>
   </div>
+
+  <form class="ngForm" *ngIf="pedido && cliente" >
+    
   <div class="card-body d-flex justify-content-start">
-    <div class="pr-2">
-      <label class="form-control">Id Pedido </label>
+
+    <div class="pr-2" *ngIf="pedido && pedido.id">
+      <label> Id Pedido </label>
+      <input disabled [placeholder]="pedido.id" type="text" class="form-control" id="nomeprod" />
     </div>
-    <div class="pr-2">
+
+    <div class="pr-2" >
+      <label>CPF</label> 
       <input
+        name="cpf"
         type="string"
         class="form-control"
         id="cpf"
+        [disabled]="CPFCadastrado"
         placeholder="CPF"
         (change)="searchcpf($event)"
+        [(ngModel)]="cliente.cpf"
+        maxlength="11"
       />
     </div>
-    <div class="pr-2">
-      <a class="btn btn-info btn-icon-split">
-        <span class="icon text-white-50">
-          <i class="fas fa-user"></i>
-        </span>
-        <span class="text">Buscar</span>
-      </a>
-    </div>
-    <div>
-      <label class="form-control">
-        {{ pedidoForm.data | date : "dd/MM/yyyy" }}
-      </label>
-    </div>
-  </div>
-  <div
-    class="card-body d-flex border border-2 m-3 pr-1 pl-1 rounded align-items-end"
-  >
-    <div class="pr-2 w-25">
-      <label>EAN</label>
+  
+    
+    <div *ngIf="cliente" class="pr-2">
+      <label>NOME</label> 
       <input
-        type="Number"
+        name="nomeCliente"
+        type="string"
         class="form-control"
-        id="IdProd"
-        (change)="searchproduct($event)"
+        id="cpf"
+        disabled
+        [(ngModel)]="cliente.nome"
       />
     </div>
+
+    <div *ngIf="cliente" class="pr-2">
+      <label>E-MAIL</label> 
+      <input
+        name="emailCliente"
+        type="string"
+        class="form-control"
+        id="email"
+        disabled
+        [(ngModel)]="cliente.email"
+      />
+    </div>
+
+    <div *ngIf="cliente" class="pr-2">
+      <label>CONTATO</label> 
+      <input
+        name="telefoneCliente"
+        type="string"
+        class="form-control"
+        id="tel"
+        disabled
+        [(ngModel)]="cliente.telefone"
+      />
+    </div>
+
+    <div>
+      <label>DATA</label> 
+      <label class="form-control" *ngIf="pedido.data">
+        {{ pedido.data  }}
+      </label>
+      <ng-template  [ngIf]="!pedido.data">
+        <label class="form-control">
+          {{ pedidoForm.data | date : "dd/MM/yyyy"  }}
+        </label>
+      </ng-template>
+    </div>
+
+  </div>
+</form>
+
+
+
+<form *ngIf="pedidoProduto && produtos ">  
+  
+<div class="card-body d-flex border border-2 m-3 pr-1 pl-1 rounded align-items-end">
+  <div class="pr-2 w-25">
+    <label>EAN</label>
+    <input type="Number"class="form-control"id="IdProd"(change)="searchproduct($event)"/>
+  </div>
+    
     <div class="pr-2 w-50">
       <label>Produto</label>
-      <input type="text" class="form-control" id="nomeprod" />
+      <input name="nomeProd" *ngIf="EAN" [(ngModel)]="produtos[EAN-1].nome" disabled type="text" class="form-control" id="nomeprod" />
     </div>
     <div class="pr-2 w-75">
       <label>Descrição</label>
-      <input type="text" class="form-control" id="descprod" />
+      <input disabled type="text"  name="descprod" *ngIf="EAN" [(ngModel)]="produtos[EAN-1].desc" class="form-control" id="descprod" />
+    </div>
+    <div class="pr-2">
+      <label>Qtd Estoque</label>
+      <input type="number" disabled name="qtdEstoque" *ngIf="EAN" [(ngModel)]="produtos[EAN-1].qtdEstoque" class="form-control" id="qtdprod" />
     </div>
     <div class="pr-2">
       <label>Quantidade</label>
-      <input type="number" class="form-control" id="qtdprod" />
+      <input type="number" name="qtdProd" [(ngModel)]="pedidoProduto.qtd" class="form-control" id="qtdprod" />
     </div>
     <div class="pr-2">
       <label>Valor</label>
-      <input type="string" class="form-control" id="valorprod" />
+      <input disabled name="valorprod" *ngIf="EAN" [(ngModel)]="produtos[EAN-1].valor" type="string" class="form-control" id="valorprod" />
     </div>
     <div class="pr-2">
-      <a class="btn btn-success btn-icon-split">
+      <button [disabled]="!EANValido" class="btn btn-success btn-icon-split">
         <span class="icon text-white-50">
           <i class="fas fa-plus"></i>
         </span>
         <span class="text">Adicionar</span>
-      </a>
+      </button>
     </div>
   </div>
+</form>
+  
+  <form *ngIf="pedidoProduto && produtos ">  
   <div class="card-body pb-0">
     <div class="table-responsive">
       <table
@@ -87,51 +142,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Dipirona</td>
-            <td>Sódica 500mg Genérico c/10</td>
-            <td>10</td>
-            <td>R$ 43,50</td>
-            <td class="text-center">
-              <i class="fas fa-pen text-gray-600"></i>
-            </td>
-            <td class="text-center">
-              <i class="fas fa-trash text-gray-600"></i>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Dipirona</td>
-            <td>Dipirona Sódica 500mg Genérico c/10</td>
-            <td>10</td>
-            <td>R$ 43,50</td>
-            <td class="text-center">
-              <i class="fas fa-pen text-gray-600"></i>
-            </td>
-            <td class="text-center">
-              <i class="fas fa-trash text-gray-600"></i>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Dipirona</td>
-            <td>Sódica 500mg Genérico c/10</td>
-            <td>10</td>
-            <td>R$ 43,50</td>
-            <td class="text-center">
-              <i class="fas fa-pen text-gray-600"></i>
-            </td>
-            <td class="text-center">
-              <i class="fas fa-trash text-gray-600"></i>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Dipirona</td>
-            <td>Sódica 500mg Genérico c/10</td>
-            <td>10</td>
-            <td>R$ 43,50</td>
+          <tr *ngFor="let pedidosProdutos of pedidoProduto">
+            <td>{{produtos[(pedidosProdutos.idProduto)-1].id}}</td>
+            <td>{{produtos[(pedidosProdutos.idProduto)-1].nome}}</td>
+            <td>{{produtos[(pedidosProdutos.idProduto)-1].desc}}</td>
+            <td>{{pedidosProdutos.qtd}}</td>
+            <td>{{pedidosProdutos.valorTotal}}</td>
             <td class="text-center">
               <i class="fas fa-pen text-gray-600"></i>
             </td>
@@ -140,9 +156,13 @@
             </td>
           </tr>
         </tbody>
-      </table>
+   </table>
     </div>
   </div>
+
+  </form>
+
+
   <div
     class="card-body d-flex border border-2 mr-3 ml-3 mb-2 p-2 rounded justify-content-between align-items-center"
   >
@@ -152,19 +172,21 @@
         >R$: 350,00</label
       >
     </div>
+
     <div>
-      <a class="btn btn-primary btn-icon-split mr-2">
+      <button (click)="salvar()" class="btn btn-primary btn-icon-split mr-2">
         <span class="icon text-white-50">
           <i class="fas fa-arrow-right"></i>
         </span>
         <span class="text">Finalizar Pedido</span>
-      </a>
-      <a class="btn btn-danger btn-icon-split">
+      </button>
+
+      <button (click)="cancelar()" class="btn btn-danger btn-icon-split">
         <span class="icon text-white-50">
           <i class="fas fa-trash"></i>
         </span>
         <span class="text">Cancelar</span>
-      </a>
+      </button>
     </div>
   </div>
-</div>
+
