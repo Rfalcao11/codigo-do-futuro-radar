@@ -1,7 +1,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h4 class="m-0 font-weight-bold text-primary mt-2 pt-1 pb-1">{{titulo}}</h4>
+    <h4 class="m-0 font-weight-bold orange mt-2 pt-1 pb-1">{{titulo}}</h4>
   </div>
 
   <form class="ngForm" *ngIf="pedido && cliente" >
@@ -71,7 +71,7 @@
         {{ pedido.data  }}
       </label>
       <ng-template  [ngIf]="!pedido.data">
-        <label class="form-control">
+        <label class="form-control text-secondary">
           {{ pedidoForm.data | date : "MM/dd/yyyy" }}
         </label>
       </ng-template>
@@ -131,7 +131,7 @@
         cellspacing="0"
       >
         <thead>
-          <tr>
+          <tr class="orange">
             <th>EAN</th> 
             <th>Produto</th>
             <th>Descrição</th>
@@ -181,7 +181,7 @@
     </div>
 
     <div>
-      <button (click)="salvar()" *ngIf="!CPFCadastrado" [disabled]="!CPFValido || !atualiza || valorPedidoTotal==0" class="btn btn-primary btn-icon-split mr-2">
+      <button (click)="salvar()" *ngIf="!CPFCadastrado" [disabled]="!CPFValido || !atualiza || valorPedidoTotal==0" class="btn btn-success btn-icon-split mr-2">
         <span class="icon text-white-50">
           <i class="fas fa-arrow-right"></i>
         </span>
