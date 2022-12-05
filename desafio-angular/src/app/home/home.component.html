@@ -13,20 +13,24 @@
           <div
             class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
           >
-            <h6 class="m-0 font-weight-bold text-primary">Relatório Diario</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Relatorio Estoque</h6>
           </div>
           <!-- Card Body -->
           <div class="card-body">
             <div class="text-center">
-              -------------- Aqui vamos colocar um Dashboard --------------<br />
-              --------- e ajusta de acordo com o tamanho do dash ----------<br />
-              -------------------------- Dahora né? ---------------------------
+              <body>
+                <div id="top_x_div" style="width: 800px; height: 600px;"></div>
+              </body>
+
               <br />
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <app-pie-chart></app-pie-chart>
+ 
     <div class="row">
       <!-- Pie Chart -->
       <div class="col-xl col-lg w-50">
@@ -40,9 +44,9 @@
           <!-- Card Body -->
           <div class="card-body">
             <div class="pt-4 pb-2 text-center">
-              Aqui vamos colocar um Dashboard<br />
-              e ajusta de acordo com o tamanho do dash<br />
-              Dahora né?
+              <body>
+                <div id="chart_div" style="width: 100%; height: 500px;"></div>
+              </body>
             </div>
             <div class="mt-4 text-center small">
               <span class="mr-2">
@@ -65,7 +69,11 @@
             class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
           >
             <h6 class="m-0 font-weight-bold text-primary">Relatório de Hoje</h6>
+            
           </div>
+          <body>
+            <div id="donutchart" style="width: 900px; height: 500px;"></div>
+          </body>
           <!-- Card Body -->
           <div class="card-body">
             <div class="pt-4 pb-2 text-center">aqui vai mais informações</div>
