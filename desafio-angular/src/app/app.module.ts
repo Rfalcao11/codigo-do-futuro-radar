@@ -1,6 +1,5 @@
 import { DEFAULT_CURRENCY_CODE,LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -18,6 +17,8 @@ import { FormatacaoCpfPipe } from './pipes/formatacaoCpf.pipe';
 import { FormatacaoCepPipe } from './pipes/formatacaoCep.pipe';
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { PieChartComponent } from './chart/pie-chart/pie-chart.component';
 
 registerLocaleData(ptBr);
 
@@ -38,6 +39,7 @@ registerLocaleData(ptBr);
     FormatacaoPipe,
     FormatacaoCpfPipe,
     FormatacaoCepPipe,
+    PieChartComponent,
     
   ],
   imports: [
@@ -45,6 +47,7 @@ registerLocaleData(ptBr);
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    GoogleChartsModule,
 
   ],
   providers: [
