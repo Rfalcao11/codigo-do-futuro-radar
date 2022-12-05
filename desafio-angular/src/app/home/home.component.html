@@ -3,9 +3,6 @@
     <h4 class="m-0 font-weight-bold mt-2 pt-1 pb-1 orange">Relatórios</h4>
   </div>
 
-  <div>
-    <google-chart  [type]="bar" [data]="meusDados"></google-chart>
-  </div>
   <!-- Linha Relatório diário -->
   <div class="card-body">
     <div class="row w-100">
@@ -22,43 +19,42 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-              <div class="pt-4 pb-2 text-center" id="chart_div"></div>
+              <div class="pt-4 pb-2 text-center">
+                <google-chart [type]="bar" [data]="meusDados"></google-chart>
+              </div>
             </div>
           </div>
-          <!-- Card Body -->
-          <div class="card-body">
-            <div class="text-center">
-             
-              <!-- relatorio estoque aqui -->
-              RELATORIO ESTOQUE AQUI
-              <br />
+        </div>
+        <div class="col-xl col-lg w-50">
+          <div class="card mb-4">
+            <!-- Card Header - Dropdown -->
+            <div
+              class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+            >
+              <h6 class="m-0 font-weight-bold orange">
+                Movimentação de Produtos
+              </h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+              <div class="pt-4 pb-2 text-center"></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <app-pie-chart></app-pie-chart>
- 
-    <div class="row">
-      <!-- Pie Chart -->
-      <div class="col-xl col-lg w-50">
-        <div class="card mb-4">
-          <!-- Relatório Anual -->
-          <div
-            class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
-          >
-            <h6 class="m-0 font-weight-bold text-primary">Relatório Anual</h6>
-          </div>
-          <!-- Card Body -->
-          <div class="card-body">
-            <div class="pt-4 pb-2 text-center">
-              
-              RELATORIO ANUAL AQUI
+      <div class="row w-100">
+        <!-- Pie Chart -->
+        <div class="col-xl col-lg w-50">
+          <div class="card mb-4">
+            <!-- Relatório Anual -->
+            <div class="card-header py-3 w-100">
+              <h6 class="m-0 font-weight-bold orange">
+                Movimentação de Pedidos por Medicamento
+              </h6>
             </div>
             <!-- Card Body -->
             <div class="card-body">
-              <div class="pt-4 pb-2 text-center" id="chart_div"></div>
+              <google-chart [type]="pedidosPorMedicamento" [data]="dadosMedicamento" [options]="optionsMedicamento"></google-chart>
             </div>
           </div>
         </div>
@@ -79,99 +75,20 @@
           </div>
         </div>
       </div>
-      <div class="col-xl col-lg w-50">
-        <div class="card mb-4">
-          <!-- Card Header - Dropdown -->
-          <div
-            class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
-          >
-            <h6 class="m-0 font-weight-bold text-primary">Relatório de Hoje</h6>
-            
-          </div>
-
-          <google-chart  ></google-chart>
-          <!-- Card Body -->
-          <div class="card-body">
-            <div class="pt-4 pb-2 text-center">aqui vai mais informações</div>
-            <div class="mt-4 text-center small">
-              <span class="mr-2">
-                <i class="fas fa-circle text-primary"></i> Direct
-              </span>
-              <span class="mr-2">
-                <i class="fas fa-circle text-success"></i> Social
-              </span>
-              <span class="mr-2">
-                <i class="fas fa-circle text-info"></i> Referral
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Div Dashboard -->
-    <div class="row">
-      <!-- Earnings (Monthly) Card Example -->
-      <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-primary h-100 py-2">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                <div
-                  class="text-xs font-weight-bold text-primary text-uppercase mb-1"
-                >
-                  Clientes
-                </div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">15</div>
-              </div>
-              <div class="col-auto">
-                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Earnings (Monthly) Card Example -->
-      <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-success h-100 py-2">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                <div
-                  class="text-xs font-weight-bold text-success text-uppercase mb-1"
-                >
-                  Earnings (Annual)
-                </div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                  $215,000
-                </div>
-              </div>
-              <div class="col-auto">
-                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Earnings (Monthly) Card Example -->
-      <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-info h-100 py-2">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                <div
-                  class="text-xs font-weight-bold text-info text-uppercase mb-1"
-                >
-                  Tasks
-                </div>
-                <div class="row no-gutters align-items-center">
-                  <div class="col-auto">
-                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                      50%
-                    </div>
+      <!-- Div Dashboard -->
+      <div class="row d-flex w-100">
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-primary h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div
+                    class="text-xs font-weight-bold text-primary text-uppercase mb-1"
+                  >
+                    Clientes
                   </div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">15</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">{{qtdClientes}}</div>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -190,10 +107,10 @@
                   <div
                     class="text-xs font-weight-bold text-success text-uppercase mb-1"
                   >
-                    Earnings (Annual)
+                    Ganho Total
                   </div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">
-                    $215,000
+                    {{valTotal | currency : "BRL" : "symbol" : "1.2-2" }}
                   </div>
                 </div>
                 <div class="col-auto">

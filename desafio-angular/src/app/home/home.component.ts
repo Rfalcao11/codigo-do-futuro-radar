@@ -36,10 +36,25 @@ export class HomeComponent implements OnInit {
   public pedidoProduto:PedidoProduto | any = {} as PedidoProduto
   public cliente:Cliente | undefined = {} as Cliente
   public produtos:Produto[] | any = [] 
+  public pedidosProdutos:any = []
+  public pedidos:any = []
 
+  //TIPO CHARTS
   bar:ChartType = ChartType.Bar
-  
+  pedidosPorMedicamento:ChartType = ChartType.PieChart
+  ///////////////////////////////////////////
   public meusDados:any[] = [ ];
+  public dadosMedicamento:any = [ ];
+
+  public valTotal:number = 0
+  public qtdClientes:number | any
+
+  public optionsMedicamento = {
+    title: 'Medicamentos mais Vendidos',
+    pieHole: 0.4
+  }
+
+
 
   ngOnInit(): void {
     this.pedidoServico = new PedidoServico(this.http)
@@ -47,19 +62,43 @@ export class HomeComponent implements OnInit {
     this.pedidoProdutoServico = new PedidoProdutoServico(this.http)
     this.produtoServico = new ProdutoServico(this.http)
     this.chamarDados()
+
   }
 
   private async chamarDados() {
 
     this.produtos = await this.produtoServico.listarProdutos();
-  
-    //    this.pedidoProduto = await this.pedidoProdutoServico.buscarPedidoProdutoPorId(id)
-
+    this.pedidosProdutos = await this.pedidoProdutoServico.listarPedidoProduto()
+    this.pedidos = await this.pedidoServico.listarPedidos()
+    this.qtdClientes = await this.clienteServico.listarTamanhoClientes()
     let listaNovaProdutos = []
     for(let i = 0; i<this.produtos.length;i++){
       listaNovaProdutos.push([this.produtos[i].nome,this.produtos[i].qtdEstoque])
     }
     this.meusDados = listaNovaProdutos
+
+    let listaPedidosProdutosNova = []
+    for(let i =0;i<this.pedidosProdutos.length;i++){
+      listaPedidosProdutosNova.push( [this.produtos[(this.pedidosProdutos[i].idProduto)-1].nome, this.pedidosProdutos[i].valorTotal])
+    }
+
+    for(let i=0;i<this.pedidos.length;i++){
+      this.valTotal += this.pedidos[i].valorTotal
+    }
+
+
+    let listaPedidoProdutoOficial =[]
+    for(let pedidoProd of listaPedidosProdutosNova){
+      for(let o=0;o<pedidoProd.length;o++){
+        let nome = pedidoProd[o]
+        
+      }
+    }
+
+    
+    console.log(this.pedidos)
+    this.dadosMedicamento = listaPedidosProdutosNova
+    console.log(this.pedidosProdutos)
     console.log(listaNovaProdutos)
 
   }

@@ -36,4 +36,8 @@ export class ClienteServico{
         firstValueFrom(this.http.delete(`${environment.API}/clientes/${id}`))
     }
     
+    public async listarTamanhoClientes(): Promise<undefined> {
+        let tamanhoCliente: number | any = await (await firstValueFrom(this.http.get<Cliente[]>(`${environment.API}/clientes`))).length
+        return tamanhoCliente;
+    }
 }
