@@ -50,7 +50,6 @@ export class HomeComponent implements OnInit {
 
   public meusDados:any[] = 
   [
-    
   ];
   ngOnInit(): void {
     this.pedidoServico = new PedidoServico(this.http)
