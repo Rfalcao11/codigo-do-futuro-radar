@@ -1,33 +1,15 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h4 class="m-0 font-weight-bold text-primary mt-2 pt-1 pb-1">Pedidos</h4>
+    <h4 class="m-0 font-weight-bold orange mt-2 pt-1 pb-1">Pedidos</h4>
   </div>
   <div class="card-body d-flex pb-1 justify-content-between">
-    
     <button (click)="novoPedido()" class="btn btn-success btn-icon-split">
       <span class="icon text-white-50">
         <i class="fas fa-plus"></i>
       </span>
       <span class="text">Novo pedido</span>
     </button>
-
-    <form class="">
-      <div class="input-group">
-        <input
-          type="text"
-          class="form-control bg-light border-0 small"
-          placeholder="Buscar pedido"
-          aria-label="Search"
-          aria-describedby="basic-addon2"
-        />
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search fa-sm"></i>
-          </button>
-        </div>
-      </div>
-    </form>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -38,25 +20,26 @@
         cellspacing="0"
       >
         <thead>
-          <tr>
+          <tr class="orange">
             <th>Pedido</th>
             <th>CPF Cliente</th>
             <th>Valor Total</th>
-            <th>Data</th>         
+            <th>Data</th>
           </tr>
         </thead>
-        <tbody >
+        <tbody>
           <tr *ngFor="let pedido of pedidos">
-            <td>{{pedido.id}}</td>
-            <td *ngIf="pedido && pedido.cpfCliente">{{pedido.cpfCliente | formatarCpf}}</td>
-            <td >{{pedido.valorTotal }}</td>
-            <td>{{pedido.data}}</td>
+            <td>{{ pedido.id }}</td>
+            <td *ngIf="pedido && pedido.cpfCliente">
+              {{ pedido.cpfCliente | formatarCpf }}
+            </td>
+            <td>{{ pedido.valorTotal }}</td>
+            <td>{{ pedido.data }}</td>
             <td class="text-center">
               <button (click)="editarPedido(pedido.id)" class="btn p-0">
-              <i class="fas fa-eye text-gray-600" role="button"></i>
+                <i class="fas fa-eye text-gray-600" role="button"></i>
               </button>
             </td>
-           
           </tr>
         </tbody>
       </table>
