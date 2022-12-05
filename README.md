@@ -2,13 +2,13 @@
 
 ## Grupo 8
 
-Gustavo Pereira
-Jaziel Matos
-Lucas de Grande
-Bruno Corrêa
-Jonathan Tenório
-Sérgio Alves
-Rafael Falcão
+Gustavo Pereira  
+Jaziel Matos  
+Lucas de Grande  
+Bruno Corrêa  
+Jonathan Tenório  
+Sérgio Alves  
+Rafael Falcão  
 
 ### Radar
 
