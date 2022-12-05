@@ -39,18 +39,8 @@ export class HomeComponent implements OnInit {
 
   bar:ChartType = ChartType.Bar
   
-  public myData:any[] = [
-    ['London', 8136000],
-    ['New York', 8538000],
-    ['Paris', 2244000],
-    ['Berlin', 3470000],
-    ['Kairo', 19500000],
-    ['[\'fodase\', 123123]']
-  ];
+  public meusDados:any[] = [ ];
 
-  public meusDados:any[] = 
-  [
-  ];
   ngOnInit(): void {
     this.pedidoServico = new PedidoServico(this.http)
     this.clienteServico = new ClienteServico(this.http)
@@ -73,5 +63,7 @@ export class HomeComponent implements OnInit {
     console.log(listaNovaProdutos)
 
   }
+
+  
 
 }
