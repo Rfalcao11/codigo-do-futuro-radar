@@ -13,7 +13,7 @@
 
 ### Radar
 
-![Radar](https://imgur.com/voecUND)
+![Radar](https://imgur.com/voecUND.png)
 
 Projeto proposto no primeiro desafio do Código do Futuro, o "Desafio Angular"
 
