@@ -20,7 +20,7 @@
             <!-- Card Body -->
             <div class="card-body">
               <div class="pt-4 pb-2 text-center">
-                <google-chart [type]="bar" [data]="meusDados"></google-chart>
+                <google-chart style="width: 700px; height: 200px;" [options]="optionsProdutos" [type]="bar" [data]="meusDados"></google-chart>
               </div>
             </div>
           </div>
@@ -37,7 +37,7 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-              <div class="pt-4 pb-2 text-center"></div>
+              <google-chart [type]="chartGraficoData" [options]="geoChartsOption" [data]="dadosGraficoData"></google-chart>
             </div>
           </div>
         </div>
@@ -54,7 +54,9 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-              <google-chart [type]="pedidosPorMedicamento" [data]="dadosMedicamento" [options]="optionsMedicamento"></google-chart>
+              <google-chart style="width: 750px; height: 350px; padding: auto; " [type]="pedidosPorMedicamento" [data]="dadosMedicamento" [options]="optionsMedicamento"></google-chart>
+              <hr>
+              TESTE
             </div>
           </div>
         </div>
@@ -70,7 +72,7 @@
             </div>
             <!-- Card Body -->
             <div class="card-body">
-              <div class="pt-4 pb-2 text-center" id="donutchart"></div>
+              <google-chart [type]="graficoColuna" [data]="dataGraficoColuna" [options]="optionsColuna"> </google-chart>
             </div>
           </div>
         </div>
@@ -84,8 +86,7 @@
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div
-                    class="text-xs font-weight-bold text-primary text-uppercase mb-1"
-                  >
+                    class="text-xs font-weight-bold text-primary text-uppercase mb-1" >
                     Clientes
                   </div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">{{qtdClientes}}</div>
