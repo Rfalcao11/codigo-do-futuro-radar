@@ -46,7 +46,7 @@ O menu "Pedidos" é uma tabela que contém os dados dos clientes.
 
 Na guia de "Produtos" é possível cadastrar e gerenciar itens do estoque.
 
-![Imgur](https://i.imgur.com/KCfx0a5.png)
+![Imgur](https://imgur.com/jOwR9gp.png)
 
 ### Agradecimento
 
