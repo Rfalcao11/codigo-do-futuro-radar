@@ -1,7 +1,7 @@
 # Código do Futuro
 
 ## Grupo 8
-| ![Lucas de Grande](https://imgur.com/WZyjPSG.png) |![Gustavo Pereira](https://imgur.com/OBxciGL.png) | ![Rafael Falcão](https://imgur.com/8BeJW9T.png) |![Imgur](https://imgur.com/fknXU6Y.png) |
+| ![Lucas de Grande](https://imgur.com/CswB4ro.png) |![Gustavo Pereira](https://imgur.com/OBxciGL.png) | ![Rafael Falcão](https://imgur.com/8BeJW9T.png) |![Imgur](https://imgur.com/fknXU6Y.png) |
 |--|--|--|--|
 | Lucas de Grande |Gustavo Pereira |Rafael Falcão |Jaziel Matos |
 
