@@ -13,6 +13,8 @@
 
 ### Radar
 
+![Radar](https://imgur.com/voecUND)
+
 Projeto proposto no primeiro desafio do Código do Futuro, o "Desafio Angular"
 
 O Radar é uma aplicação web que mostra em tempo real todo fluxo de caixa de cliente, desde os pedidos realizados, ao saldo.
