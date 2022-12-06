@@ -54,7 +54,7 @@ export class NovoclienteComponent implements OnInit {
         numero: this.cliente?.numero,
         bairro: this.cliente?.bairro,
         cidade: this.cliente?.cidade,
-        estado: this.cliente?.estado,
+        estado: this.cliente?.estado?.toUpperCase(),
         complemento: this.cliente?.complemento
       });
     }

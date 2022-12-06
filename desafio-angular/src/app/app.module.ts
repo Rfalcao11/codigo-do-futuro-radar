@@ -18,9 +18,6 @@ import { FormatacaoCepPipe } from './pipes/formatacaoCep.pipe';
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
 import { ChartType, GoogleChartsModule, GOOGLE_CHARTS_CONFIG } from 'angular-google-charts';
-import { PieChartComponent } from './chart/pie-chart/pie-chart.component';
-import { GoogleChartComponent } from './chart/google-chart/google-chart.component';
-
 registerLocaleData(ptBr);
 
 
@@ -40,8 +37,6 @@ registerLocaleData(ptBr);
     FormatacaoPipe,
     FormatacaoCpfPipe,
     FormatacaoCepPipe,
-    PieChartComponent,
-    GoogleChartComponent,
         
   ],
   imports: [

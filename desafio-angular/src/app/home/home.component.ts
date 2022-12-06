@@ -1,7 +1,5 @@
-import { CurrencyPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { ChartType } from 'angular-google-charts';
 import { Cliente } from '../modules/modeloCliente';
 import { PedidoProduto } from '../modules/modeloPedidoProduto';
@@ -21,7 +19,6 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private http:HttpClient,
-    private routerParams: ActivatedRoute,
   
   ) { }
   
@@ -33,8 +30,20 @@ export class HomeComponent implements OnInit {
 
   
   public valTotal:number = 0
-  public qtdClientes:number | any
-
+  public qtdClientes:number | any =0
+  public pedidosTotal:number = 0
+  public totalProdutos:number = 0
+  public descPedidosCharts:any = {
+    clicado: false,
+    nomeProduto: "",
+    valorTotal: 0,
+  }
+  public descProdutosCharts:any = {
+    clicado: false,
+    nomeProduto: "",
+    qtdEstoque: 0,
+    qtdVendida: 0,
+  }
 
 // declarar dados
   public pedido:Pedido | undefined = {} as Pedido
@@ -50,6 +59,7 @@ export class HomeComponent implements OnInit {
   pedidosPorMedicamento:ChartType = ChartType.PieChart
   chartGraficoData:ChartType = ChartType.GeoChart
   graficoColuna:ChartType = ChartType.ColumnChart
+
   ///////////////////////////////////////////
   
   //DADOS CHARTS
@@ -59,32 +69,16 @@ export class HomeComponent implements OnInit {
   ];
   public dadosGraficoData:any = [ ]
 
-  public dataGraficoColuna = [
-    ['Move', 23],
-    ["King's pawn (e4)", 44],
-    ["Queen's pawn (d4)", 31],
-    ["Knight to King 3 (Nf3)", 12],
-    ["Queen's bishop pawn (c4)", 10],
-    ['Other', 3]
-
-  ]
+  public dataGraficoColuna:any = [ ]
   
   ////////////////////////////////////
 
 
   //OPTIONS DOS CHARTS
   public optionsColuna = {
-    width: 800,
+    width: 700,
     legend: { position: 'none' },
-    chart: {
-      title: 'Chess opening moves',
-      subtitle: 'popularity by percentage' },
-    axes: {
-      x: {
-        0: { side: 'top', label: 'White to move'} // Top x-axis.
-      }
-    },
-    bar: { groupWidth: "90%" }
+    bar: { groupWidth: "80%" }
   };
 
   public geoChartsOption = {
@@ -101,7 +95,8 @@ export class HomeComponent implements OnInit {
 
   public optionsProdutos = {
     pieSliceText: 'label',
-    legend: 'none',
+    legend: { position: 'none' },
+
 
   }
   public optionsMedicamento = {
@@ -162,10 +157,46 @@ export class HomeComponent implements OnInit {
     /* --------------------------------------------------------------------------------------------------*/
 
 
+    //DADOS QTD DE PRODUTOS VENDIDOS
+    let listaProdutosVendidos = []
+    for(let i =0;i<this.pedidosProdutos.length;i++){
+      listaProdutosVendidos.push( [this.produtos[(this.pedidosProdutos[i].idProduto)-1].nome, this.pedidosProdutos[i].qtd])
+    }
+    let produtofiltrado:any = {}
+    for(let i=0; i< listaProdutosVendidos.length; i++){
+      let dadoProd = listaProdutosVendidos[i]
+      if(produtofiltrado[dadoProd[0]]) {
+        produtofiltrado[dadoProd[0]] += dadoProd[1]
+      }
+      else{
+        produtofiltrado[dadoProd[0]] = dadoProd[1]
+      }
+    }
+    let prodChave = Object.keys(produtofiltrado)
+    let novoProd = []
+    for(let i=0; i< prodChave.length; i++){
+      let key = prodChave[i]
+      let valor = produtofiltrado[key]
+      novoProd.push([key, valor])   
+
+    }
+    this.dataGraficoColuna = novoProd
+    /* --------------------------------------------------------------------------------------------------*/
+
     //DADO GANHO TOTAL
     for(let i=0;i<this.pedidos.length;i++){
       this.valTotal += this.pedidos[i].valorTotal
     } 
+
+    //DADOS PEDIDOS
+    for(let i=0;i<this.pedidos.length;i++){
+      this.pedidosTotal += 1; 
+    }
+
+    //TOTAL DE PRODUTOS
+    for(let i=0;i<this.produtos.length;i++){
+      this.totalProdutos += 1;
+    }
     /* --------------------------------------------------------------------------------------------------*/
 
 
@@ -193,6 +224,10 @@ export class HomeComponent implements OnInit {
 
     }
     this.dadosGraficoData = novoDado
+    /* --------------------------------------------------------------------------------------------------*/
+
+
+
     console.log("Lista estado",this.dadosGraficoData)
     
 
@@ -203,6 +238,74 @@ export class HomeComponent implements OnInit {
     
   }
 
-  
+  selecionado($event:any) {
 
-}
+    console.log($event)
+      try{
+      const { row, column } = $event.selection[0];
+      const year = this.meusDados[row][0];
+      let teste:any = {}
+      for(let i=0; i< this.dataGraficoColuna.length; i++){
+        let dado = this.dataGraficoColuna[i]
+        if(teste[dado[0]]) {
+          teste[dado[0]] += dado[1]
+        }
+        else{
+          teste[dado[0]] = dado[1]
+        }
+        }
+        this.descProdutosCharts = {
+          clicado: true,
+          nomeProduto: year,
+          qtdEstoque: this.meusDados[row][column],
+          qtdVendida: teste[year],
+        }
+        console.log(this.descProdutosCharts)
+    }catch(err){
+      this.descProdutosCharts.clicado = false
+      console.log(err)
+    }
+
+    }
+
+    selecionadoPizza($event:any) {
+
+        try{
+        const { row, column } = $event.selection[0];
+        const year = this.dadosMedicamento[row][0];
+        let teste:any = {}
+        for(let i=0; i< this.dadosMedicamento.length; i++){
+        let dado = this.dadosMedicamento[i]
+        if(teste[dado[0]]) {
+          teste[dado[0]] += dado[1]
+        }
+        else{
+          teste[dado[0]] = dado[1]
+        }
+        }
+
+        this.descPedidosCharts = {
+          clicado: true,
+          nomeProduto: year,
+          valorTotal: teste[year],
+        }
+        console.log(year)
+        console.log(teste[(year)])
+
+      }catch(err){
+        this.descPedidosCharts.clicado = false
+        console.log(err)
+      }
+
+      
+  
+      }
+
+
+    //   alert('The user selected ' + topping);
+    // }
+  }
+  
+ 
+
+
