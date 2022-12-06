@@ -1,14 +1,15 @@
 # Código do Futuro
 
 ## Grupo 8
+| ![Lucas de Grande](https://imgur.com/WZyjPSG.png =525x) |![Gustavo Pereira](https://imgur.com/OBxciGL.png =550x)   | ![Rafael Falcão](https://imgur.com/8BeJW9T.png =550x) |![Imgur](https://imgur.com/fknXU6Y.png)  |
+|--|--|--|--|
+| Lucas de Grande |Gustavo Pereira |Rafael Falcão |Jaziel Matos  |
 
-Gustavo Pereira  
-Jaziel Matos  
-Lucas de Grande  
-Bruno Corrêa  
-Jonathan Tenório  
-Sérgio Alves  
-Rafael Falcão  
+| ![Imgur](https://imgur.com/meggCFb.png =550x) |![Imgur](https://imgur.com/8nRoP5m.png =450x)   | ![Imgur](https://imgur.com/6NZQs6X.png =550x) 
+|--|--|--|
+|Bruno Corrêa|Jonathan Tenório|Sérgio Alves|
+
+
 
 ### Radar
 
@@ -18,6 +19,31 @@ O Radar é uma aplicação web que mostra em tempo real todo fluxo de caixa de c
 
 ### Tecnologias usadas
 [![My Skills](https://skillicons.dev/icons?i=angular,nodejs,typescript,bootstrap,git,github,figma)](https://skillicons.dev)
+
+
+### Características da Aplicação
+
+O "Radar" possui uma aba de navegação que leva até o menu desejado, fazendo com que seja simples de navegar entre as páginas.
+
+#### Relatórios
+
+A principal função do Radar é ser uma aplicação de gerenciamento financeiro e estoque. 
+Com ele é possível visualizar dados dos pedidos através de gráficos e movimentações financeiras.
+
+
+![Relatórios](https://i.imgur.com/V0KofCP.jpg)
+
+#### Pedidos
+
+O menu "Pedidos" é uma tabela que contém os dados dos clientes. 
+
+![Pedidos](https://i.imgur.com/3nVdaXG.jpg)
+
+#### Produtos
+
+Na guia de "Produtos" é possível cadastrar e gerenciar itens do estoque.
+
+![Imgur](https://i.imgur.com/KCfx0a5.png)
 
 ### Agradecimento
 
