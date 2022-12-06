@@ -1,13 +1,14 @@
 # Código do Futuro
 
 ## Grupo 8
-| ![Lucas de Grande](https://imgur.com/CswB4ro.png) |![Gustavo Pereira](https://imgur.com/OBxciGL.png) | ![Rafael Falcão](https://imgur.com/8BeJW9T.png) |![Imgur](https://imgur.com/fknXU6Y.png) |
-|--|--|--|--|
-| Lucas de Grande |Gustavo Pereira |Rafael Falcão |Jaziel Matos |
+| ![Gustavo Pereira](https://imgur.com/qKI8vdA.png) | ![Jaziel Matos](https://imgur.com/2cwueyO.png) |![Rafael Falcão](https://imgur.com/dIpaelh.png)|![Jonathan Tenório](https://imgur.com/BdMu0gd.png)  |
+|:--:|:--:|:--:|:--:|
+| Gustavo Pereira | Jaziel Matos | Rafael Falcão  | Jonathan Tenório |
 
-| ![Imgur](https://imgur.com/meggCFb.png) |![Imgur](https://imgur.com/8nRoP5m.png) | ![Imgur](https://imgur.com/6NZQs6X.png ) 
-|--|--|--|
-|Bruno Corrêa|Jonathan Tenório|Sérgio Alves|
+|![Bruno Corrêa](https://imgur.com/YX5eoMG.png)  |![Sérgio Alves](https://imgur.com/g5Iidte.png)  |![Lucas de Grande](https://imgur.com/YyAeOoK.png)  | ![Código do Futuro](https://imgur.com/LSORhfc.png) |
+|:--:|:--:|:--:|:--:|
+| Bruno Corrêa |Sérgio Alves |Lucas de Grande  |Código do Futuro|
+
 
 
 
