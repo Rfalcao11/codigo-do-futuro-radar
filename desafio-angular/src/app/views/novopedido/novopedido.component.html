@@ -111,7 +111,7 @@
       <input disabled name="valorprod" [ngModel]="produto.valor" type="string" class="form-control" id="valorprod" />
     </div>
     <div class="pr-2">
-      <button (click)="adicionarPedidoProduto()" [disabled]="!EANValido" class="btn btn-success btn-icon-split">
+      <button (click)="adicionarPedidoProduto()" [disabled]="!EANValido" class="btn btn btn-info btn-icon-split">
         <span class="icon text-white-50">
           <i class="fas fa-plus"></i>
         </span>
@@ -181,7 +181,7 @@
     </div>
 
     <div>
-      <button (click)="salvar()" *ngIf="!CPFCadastrado" [disabled]="!CPFValido || !atualiza || valorPedidoTotal==0" class="btn btn-success btn-icon-split mr-2">
+      <button (click)="salvar()" *ngIf="!CPFCadastrado" [disabled]="!CPFValido || !atualiza || valorPedidoTotal==0" class="btn btn btn-info btn-icon-split mr-2">
         <span class="icon text-white-50">
           <i class="fas fa-arrow-right"></i>
         </span>
